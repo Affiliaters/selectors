@@ -1,0 +1,986 @@
+{
+  "schema": 1,
+  "revision": 1,
+  "updated": "2026-08-18",
+  "notes": "Product-page selectors for supported stores.",
+  "disabled": false,
+  "ttlMinutes": 60,
+  "retailers": {
+    "amazon": {
+      "enabled": true,
+      "currency": {
+        "symbol": "₹",
+        "group": ",",
+        "decimal": ".",
+        "decimals": "drop"
+      },
+      "productUrl": {
+        "pattern": "\\/(?:dp|gp\\/product|gp\\/aw\\/d)\\/[A-Z0-9]{6,}",
+        "flags": "i"
+      },
+      "button": {
+        "className": "amazon-convert-btn",
+        "placements": [
+          {
+            "target": {
+              "css": "#productTitle"
+            },
+            "mode": "after"
+          }
+        ],
+        "placementsMobile": [
+          {
+            "target": {
+              "css": "#productTitle"
+            },
+            "mode": "after"
+          },
+          {
+            "target": {
+              "css": "#title"
+            },
+            "mode": "after"
+          },
+          {
+            "target": {
+              "css": "#titleSection"
+            },
+            "mode": "after"
+          },
+          {
+            "target": {
+              "css": "#corePriceDisplay_mobile_feature_div"
+            },
+            "mode": "after"
+          },
+          {
+            "target": {
+              "css": "#apex_mobile"
+            },
+            "mode": "after"
+          },
+          {
+            "target": {
+              "css": "h1"
+            },
+            "mode": "after"
+          }
+        ]
+      },
+      "extract": {
+        "title": {
+          "candidates": [
+            {
+              "css": "#productTitle"
+            }
+          ]
+        },
+        "price": {
+          "candidates": [
+            {
+              "css": "#priceblock_ourprice"
+            },
+            {
+              "css": "#priceblock_dealprice"
+            },
+            {
+              "css": "#corePriceDisplay_desktop_feature_div .a-price:not([data-a-strike=\"true\"]) .a-offscreen"
+            },
+            {
+              "css": "#corePrice_desktop .a-price:not([data-a-strike=\"true\"]) .a-offscreen"
+            },
+            {
+              "css": "#apex_desktop .a-price:not([data-a-strike=\"true\"]) .a-offscreen"
+            },
+            {
+              "css": "#corePriceDisplay_desktop_feature_div .a-price-whole"
+            },
+            {
+              "css": "#corePrice_desktop .a-price-whole"
+            },
+            {
+              "css": "#apex_desktop .a-price-whole"
+            },
+            {
+              "css": "#corePrice_feature_div .a-price-whole"
+            },
+            {
+              "css": "#ppd .a-price:not([data-a-strike=\"true\"]) .a-offscreen"
+            },
+            {
+              "mainPrice": true,
+              "within": "#ppd, #dp, #dp-container, #centerCol, #buybox"
+            }
+          ],
+          "normalize": "rupee"
+        },
+        "mrp": {
+          "candidates": [
+            {
+              "css": ".basisPrice .a-offscreen"
+            },
+            {
+              "css": "#corePriceDisplay_desktop_feature_div span.a-price.a-text-price[data-a-strike=\"true\"] .a-offscreen"
+            },
+            {
+              "css": "span.a-price.a-text-price[data-a-strike=\"true\"] .a-offscreen"
+            },
+            {
+              "strike": true
+            }
+          ],
+          "normalize": "rupee"
+        },
+        "coupon": {
+          "candidates": [
+            {
+              "amazonCoupon": true
+            }
+          ]
+        },
+        "cardOffer": {
+          "candidates": [
+            {
+              "amazonCardOffer": true
+            }
+          ]
+        },
+        "image": {
+          "candidates": [
+            {
+              "css": "#landingImage",
+              "attr": "data-old-hires"
+            },
+            {
+              "css": "#landingImage",
+              "attr": "src"
+            },
+            {
+              "css": "#imgTagWrapperId img",
+              "attr": "src"
+            },
+            {
+              "css": "#main-image-container img",
+              "attr": "src"
+            },
+            {
+              "css": ".imgTagWrapper img",
+              "attr": "src"
+            }
+          ],
+          "normalize": "image"
+        }
+      },
+      "extractMobile": {
+        "title": {
+          "candidates": [
+            {
+              "css": "#productTitle"
+            },
+            {
+              "css": "#title"
+            },
+            {
+              "css": "#titleSection #title"
+            },
+            {
+              "css": "#titleSection"
+            }
+          ]
+        },
+        "price": {
+          "candidates": [
+            {
+              "css": "#corePriceDisplay_mobile_feature_div .a-price:not([data-a-strike=\"true\"]) .a-offscreen"
+            },
+            {
+              "css": "#apex_mobile .a-price:not([data-a-strike=\"true\"]) .a-offscreen"
+            },
+            {
+              "css": "#corePriceDisplay_mobile_feature_div .a-price-whole"
+            },
+            {
+              "css": "#apex_mobile .a-price-whole"
+            },
+            {
+              "css": "#price_inside_buybox"
+            },
+            {
+              "css": "#newBuyBoxPrice"
+            },
+            {
+              "css": "#priceblock_ourprice"
+            },
+            {
+              "css": "#priceblock_dealprice"
+            },
+            {
+              "mainPrice": true,
+              "within": "#corePriceDisplay_mobile_feature_div, #apex_mobile, #mobile_buybox, #ppd"
+            }
+          ],
+          "normalize": "rupee"
+        },
+        "mrp": {
+          "candidates": [
+            {
+              "css": "#corePriceDisplay_mobile_feature_div span.a-price.a-text-price[data-a-strike=\"true\"] .a-offscreen"
+            },
+            {
+              "css": "#apex_mobile span.a-price.a-text-price[data-a-strike=\"true\"] .a-offscreen"
+            },
+            {
+              "css": ".basisPrice .a-offscreen"
+            },
+            {
+              "strike": true,
+              "within": "#corePriceDisplay_mobile_feature_div, #apex_mobile, #ppd"
+            }
+          ],
+          "normalize": "rupee"
+        },
+        "coupon": {
+          "candidates": [
+            {
+              "amazonCoupon": true
+            }
+          ]
+        },
+        "cardOffer": {
+          "candidates": [
+            {
+              "amazonCardOffer": true
+            }
+          ]
+        },
+        "image": {
+          "candidates": [
+            {
+              "css": "#landingImage",
+              "attr": "data-old-hires"
+            },
+            {
+              "css": "#landingImage",
+              "attr": "src"
+            },
+            {
+              "css": "#main-image",
+              "attr": "src"
+            },
+            {
+              "css": "#imgTagWrapperId img",
+              "attr": "src"
+            },
+            {
+              "css": "#imageBlock_feature_div img",
+              "attr": "src"
+            },
+            {
+              "css": "#altImages img",
+              "attr": "src"
+            }
+          ],
+          "normalize": "image"
+        }
+      },
+      "availability": {
+        "outOfStock": [
+          {
+            "css": ".primary-availability-message",
+            "match": "currently unavailable|out of stock|unavailable"
+          },
+          {
+            "css": "#availability",
+            "match": "currently unavailable|temporarily out of stock|out of stock|unavailable"
+          },
+          {
+            "css": "#outOfStock",
+            "match": "unavailable|out of stock"
+          }
+        ]
+      }
+    },
+    "flipkart": {
+      "enabled": true,
+      "currency": {
+        "symbol": "₹",
+        "group": ",",
+        "decimal": ".",
+        "decimals": "drop"
+      },
+      "productUrl": {
+        "pattern": "\\/p\\/itm[0-9a-z]",
+        "flags": "i"
+      },
+      "button": {
+        "className": "flipkart-convert-btn",
+        "placements": [
+          {
+            "target": {
+              "css": "h1"
+            },
+            "mode": "after"
+          }
+        ],
+        "placementsMobile": [
+          {
+            "target": {
+              "css": "h1"
+            },
+            "mode": "after"
+          },
+          {
+            "target": {
+              "css": "span.B_NuCI"
+            },
+            "mode": "after"
+          },
+          {
+            "target": {
+              "css": "span.VU-ZEz"
+            },
+            "mode": "after"
+          },
+          {
+            "target": {
+              "text": "(add\\s*to\\s*cart|buy\\s*now)",
+              "flags": "i",
+              "within": "button"
+            },
+            "mode": "before"
+          }
+        ]
+      },
+      "extract": {
+        "title": {
+          "candidates": [
+            {
+              "css": "span.VU-ZEz"
+            },
+            {
+              "css": "span.B_NuCI"
+            }
+          ]
+        },
+        "price": {
+          "candidates": [
+            {
+              "css": ".Nx9bqj.CxhGGd"
+            },
+            {
+              "css": "div._30jeq3._16Jk6d"
+            }
+          ]
+        },
+        "mrp": {
+          "candidates": [
+            {
+              "strike": true,
+              "requireRupee": false
+            }
+          ],
+          "normalize": "rupee"
+        },
+        "coupon": {
+          "candidates": [
+            {
+              "flipkartCoupon": true
+            }
+          ]
+        },
+        "cardOffer": {
+          "candidates": [
+            {
+              "flipkartCardOffer": true
+            }
+          ]
+        }
+      },
+      "extractMobile": {
+        "title": {
+          "candidates": [
+            {
+              "css": "span.VU-ZEz"
+            },
+            {
+              "css": "span.B_NuCI"
+            },
+            {
+              "css": "h1 span"
+            },
+            {
+              "css": "h1"
+            }
+          ]
+        },
+        "price": {
+          "candidates": [
+            {
+              "css": ".Nx9bqj.CxhGGd"
+            },
+            {
+              "css": "div._30jeq3._16Jk6d"
+            },
+            {
+              "css": "div._30jeq3"
+            },
+            {
+              "css": ".Nx9bqj"
+            },
+            {
+              "mainPrice": true,
+              "within": "body"
+            }
+          ],
+          "normalize": "rupee"
+        },
+        "mrp": {
+          "candidates": [
+            {
+              "strike": true,
+              "requireRupee": false
+            }
+          ],
+          "normalize": "rupee"
+        },
+        "coupon": {
+          "candidates": [
+            {
+              "flipkartCoupon": true
+            }
+          ]
+        },
+        "cardOffer": {
+          "candidates": [
+            {
+              "flipkartCardOffer": true
+            }
+          ]
+        }
+      },
+      "availability": {
+        "outOfStock": [
+          {
+            "text": "^\\s*(sold out|coming soon|currently unavailable|out of stock)\\s*$",
+            "within": "button, ._2KpZ6l, li, span",
+            "flags": "i"
+          }
+        ]
+      }
+    },
+    "myntra": {
+      "enabled": true,
+      "currency": {
+        "symbol": "₹",
+        "group": ",",
+        "decimal": ".",
+        "decimals": "drop"
+      },
+      "productUrl": {
+        "pattern": "\\/\\d{5,}(?:\\/buy)?(?:[/?#]|$)"
+      },
+      "button": {
+        "className": "myntra-convert-btn",
+        "placements": [
+          {
+            "target": {
+              "css": ".pdp-price-info"
+            },
+            "mode": "append"
+          },
+          {
+            "target": {
+              "css": ".pdp-price"
+            },
+            "mode": "append"
+          }
+        ],
+        "placementsMobile": [
+          {
+            "target": {
+              "mainPrice": true
+            },
+            "mode": "after"
+          },
+          {
+            "target": {
+              "css": ".pdp-price-info"
+            },
+            "mode": "after"
+          },
+          {
+            "target": {
+              "css": ".pdp-add-to-bag"
+            },
+            "mode": "before"
+          },
+          {
+            "target": {
+              "css": ".pdp-action-container, .pdp-actions"
+            },
+            "mode": "before"
+          }
+        ]
+      },
+      "extract": {
+        "title": {
+          "compose": "{brand} {name}",
+          "parts": {
+            "brand": {
+              "candidates": [
+                {
+                  "css": ".pdp-title"
+                }
+              ]
+            },
+            "name": {
+              "candidates": [
+                {
+                  "css": ".pdp-name"
+                }
+              ]
+            }
+          }
+        },
+        "price": {
+          "candidates": [
+            {
+              "myntraBestPrice": true
+            },
+            {
+              "css": ".pdp-price strong"
+            }
+          ]
+        },
+        "mrp": {
+          "candidates": [
+            {
+              "css": ".pdp-mrp s"
+            },
+            {
+              "strike": true
+            }
+          ],
+          "normalize": "rupee"
+        },
+        "coupon": {
+          "candidates": [
+            {
+              "myntraCoupon": true
+            },
+            {
+              "myntraMobileOffer": true
+            }
+          ]
+        },
+        "cardOffer": {
+          "candidates": [
+            {
+              "myntraCardOffer": true
+            }
+          ]
+        }
+      },
+      "extractMobile": {
+        "title": {
+          "compose": "{brand} {name}",
+          "parts": {
+            "brand": {
+              "candidates": [
+                {
+                  "css": ".pdp-title"
+                },
+                {
+                  "css": "h1 .pdp-title"
+                }
+              ]
+            },
+            "name": {
+              "candidates": [
+                {
+                  "css": ".pdp-name"
+                },
+                {
+                  "css": "h1 .pdp-name"
+                }
+              ]
+            }
+          }
+        },
+        "price": {
+          "candidates": [
+            {
+              "myntraBestPrice": true
+            },
+            {
+              "css": ".pdp-price strong"
+            },
+            {
+              "css": ".pdp-price"
+            }
+          ],
+          "normalize": "rupee"
+        },
+        "mrp": {
+          "candidates": [
+            {
+              "css": ".pdp-mrp s"
+            },
+            {
+              "css": ".pdp-mrp"
+            },
+            {
+              "strike": true
+            }
+          ],
+          "normalize": "rupee"
+        },
+        "coupon": {
+          "candidates": [
+            {
+              "myntraCoupon": true
+            }
+          ]
+        },
+        "image": {
+          "candidates": [
+            {
+              "bgImage": ".image-grid-image"
+            },
+            {
+              "bgImage": "div[class*=\"image-grid-image\"]"
+            },
+            {
+              "bgImage": "[class*=\"image-grid\"][style*=\"background-image\"]"
+            }
+          ],
+          "normalize": "image"
+        }
+      },
+      "availability": {
+        "outOfStock": [
+          {
+            "text": "^\\s*(out of stock|sold out)\\s*$",
+            "within": ".pdp-action-container, .pdp-add-to-bag, [class*=\"outOfStock\"], [class*=\"soldOut\"]",
+            "flags": "i"
+          }
+        ]
+      }
+    },
+    "croma": {
+      "enabled": true,
+      "currency": {
+        "symbol": "₹",
+        "group": ",",
+        "decimal": ".",
+        "decimals": "drop"
+      },
+      "productUrl": {
+        "pattern": "\\/p\\/\\d{3,}",
+        "flags": "i"
+      },
+      "button": {
+        "className": "croma-convert-btn",
+        "placements": [
+          {
+            "target": {
+              "xpath": "//*[@id=\"pdpdatael\"]/div[2]/div[1]/div/div[1]/div/div[3]/div/ul/li/section[1]"
+            },
+            "mode": "append"
+          }
+        ],
+        "placementsMobile": [
+          {
+            "target": {
+              "css": "#pdp-product-price"
+            },
+            "mode": "after"
+          },
+          {
+            "target": {
+              "css": "#pdpdatael h1"
+            },
+            "mode": "after"
+          },
+          {
+            "target": {
+              "css": "h1"
+            },
+            "mode": "after"
+          },
+          {
+            "target": {
+              "text": "(add\\s*to\\s*cart|buy\\s*now)",
+              "flags": "i",
+              "within": "button, a"
+            },
+            "mode": "before"
+          }
+        ]
+      },
+      "extract": {
+        "title": {
+          "candidates": [
+            {
+              "css": "h1"
+            },
+            {
+              "metaProperty": "og:title"
+            },
+            {
+              "metaName": "twitter:title"
+            },
+            {
+              "title": true
+            }
+          ]
+        },
+        "price": {
+          "candidates": [
+            {
+              "css": "#pdp-product-price"
+            },
+            {
+              "xpath": "/html/body/main/div/div[3]/div/div[1]/div[2]/div[1]/div/div[1]/div/div[3]/div/ul/li/section[1]/div[1]/div[1]/div/span"
+            }
+          ],
+          "normalize": "rupee"
+        },
+        "mrp": {
+          "candidates": [
+            {
+              "css": ".old-price"
+            },
+            {
+              "strike": true
+            }
+          ],
+          "normalize": "rupee"
+        },
+        "coupon": {
+          "candidates": [
+            {
+              "cromaCoupon": true
+            }
+          ]
+        },
+        "cardOffer": {
+          "candidates": [
+            {
+              "cromaCardOffer": true
+            }
+          ]
+        }
+      },
+      "extractMobile": {
+        "title": {
+          "candidates": [
+            {
+              "metaProperty": "og:title"
+            },
+            {
+              "metaName": "twitter:title"
+            },
+            {
+              "css": "#pdpdatael h1"
+            },
+            {
+              "css": "h1"
+            },
+            {
+              "title": true
+            }
+          ]
+        },
+        "price": {
+          "candidates": [
+            {
+              "css": "#pdp-product-price"
+            },
+            {
+              "css": "[id*=\"pdp-product-price\"]"
+            },
+            {
+              "mainPrice": true,
+              "within": "#pdpdatael, main"
+            }
+          ],
+          "normalize": "rupee"
+        },
+        "mrp": {
+          "candidates": [
+            {
+              "css": ".old-price"
+            },
+            {
+              "strike": true,
+              "within": "#pdpdatael, main"
+            }
+          ],
+          "normalize": "rupee"
+        }
+      },
+      "availability": {
+        "outOfStock": [
+          {
+            "text": "^\\s*(sold out|notify me|out of stock)\\s*$",
+            "within": "button, a, span",
+            "flags": "i"
+          }
+        ]
+      }
+    },
+    "shopsy": {
+      "enabled": true,
+      "currency": {
+        "symbol": "₹",
+        "group": ",",
+        "decimal": ".",
+        "decimals": "drop"
+      },
+      "productUrl": {
+        "pattern": "\\/p\\/itm[0-9a-z]",
+        "flags": "i"
+      },
+      "button": {
+        "className": "shopsy-convert-btn",
+        "placements": [
+          {
+            "target": {
+              "xpath": "//*[@id=\"slot_10000\"]/div/div[2]/div/div[3]/div[1]/div/div"
+            },
+            "mode": "append"
+          },
+          {
+            "target": {
+              "text": "(buy\\s*now|add\\s*to\\s*cart)",
+              "flags": "i",
+              "within": "button, a"
+            },
+            "mode": "after"
+          },
+          {
+            "target": {
+              "css": "div[class*=\"_30jeq3\"], ._30jeq3._16Jk6d, .Nx9bqj.CxhGGd, ._16Jk6d"
+            },
+            "mode": "after"
+          },
+          {
+            "target": {
+              "css": "h1"
+            },
+            "mode": "after"
+          }
+        ],
+        "placementsMobile": [
+          {
+            "target": {
+              "text": "(buy\\s*now|add\\s*to\\s*cart)",
+              "flags": "i",
+              "within": "button, a"
+            },
+            "mode": "after"
+          },
+          {
+            "target": {
+              "css": "#slot_10000"
+            },
+            "mode": "prepend"
+          },
+          {
+            "target": {
+              "css": "div[class*=\"_30jeq3\"], ._30jeq3._16Jk6d, .Nx9bqj.CxhGGd, ._16Jk6d"
+            },
+            "mode": "after"
+          },
+          {
+            "target": {
+              "css": "h1"
+            },
+            "mode": "after"
+          }
+        ]
+      },
+      "extract": {
+        "title": {
+          "candidates": []
+        },
+        "price": {
+          "candidates": [
+            {
+              "mainPrice": true,
+              "within": "#slot_10000"
+            },
+            {
+              "shopsyPagePrice": true
+            },
+            {
+              "css": "div[class*=\"_30jeq3\"], ._30jeq3._16Jk6d"
+            },
+            {
+              "xpath": "//*[@id=\"slot_10000\"]/div/div[2]/div/div[2]/div/div/div/div[2]/div[1]/div/div/div/div[1]/div[2]/div[2]"
+            }
+          ],
+          "normalize": "rupee"
+        },
+        "mrp": {
+          "candidates": [
+            {
+              "strike": true,
+              "within": "#slot_10000",
+              "requireRupee": false
+            }
+          ],
+          "normalize": "rupee"
+        }
+      },
+      "extractMobile": {
+        "title": {
+          "candidates": []
+        },
+        "price": {
+          "candidates": [
+            {
+              "mainPrice": true,
+              "within": "#slot_10000"
+            },
+            {
+              "shopsyPagePrice": true
+            },
+            {
+              "css": "div[class*=\"_30jeq3\"], ._30jeq3._16Jk6d, .Nx9bqj"
+            },
+            {
+              "mainPrice": true,
+              "within": "main, body"
+            }
+          ],
+          "normalize": "rupee"
+        },
+        "mrp": {
+          "candidates": [
+            {
+              "strike": true,
+              "within": "#slot_10000",
+              "requireRupee": false
+            },
+            {
+              "strike": true,
+              "requireRupee": false
+            }
+          ],
+          "normalize": "rupee"
+        }
+      },
+      "availability": {
+        "outOfStock": [
+          {
+            "text": "^\\s*(sold out|coming soon|out of stock|currently unavailable)\\s*$",
+            "within": "#slot_10000 button, #slot_10000 span, #slot_10000 li",
+            "flags": "i"
+          }
+        ]
+      }
+    }
+  }
+}

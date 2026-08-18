@@ -1,0 +1,66 @@
+{
+  "schema": 1,
+  "revision": 1,
+  "updated": "2026-08-18",
+  "notes": "Additional configuration. Only fetched by the self-updating build.",
+  "messaging": {
+    "listener": {
+      "msgSelector": "div.message-in, div.message-out, div[data-id]",
+      "listSelectors": [
+        "#main div[role=\"application\"]",
+        "#main .copyable-area",
+        "#main",
+        "div[data-testid=\"conversation-panel-messages\"]"
+      ],
+      "textHolders": [
+        "span.selectable-text.copyable-text",
+        "span.selectable-text",
+        ".copyable-text",
+        "span[data-testid=\"conversation-text\"]"
+      ],
+      "photoSelectors": [
+        "img[src^=\"blob:\"]",
+        "img[src*=\"mmg.whatsapp.net\"]",
+        "div[data-testid=\"image-thumb\"] img",
+        "div[data-testid=\"media-canvas\"] img"
+      ],
+      "noiseStrip": [
+        "[data-testid=\"msg-meta\"]",
+        "span[data-testid=\"message-status\"]",
+        "div[data-testid=\"reactions\"]",
+        ".aff-wa-msg-btn"
+      ],
+      "msgIdAttrs": [
+        "data-id",
+        "data-pre-plain-text"
+      ],
+      "chatHeaderSelector": "#main header span[title], #main header [data-testid=\"conversation-info-header-chat-title\"]"
+    },
+    "identifiers": {
+      "ls": {
+        "encKeySalt": "WAWebEncKeySalt",
+        "noiseInfoIv": "WANoiseInfoIv",
+        "noiseInfo": "WANoiseInfo",
+        "wid": "last-wid-md",
+        "lid": "WALid"
+      },
+      "idb": {
+        "encDb": "wawc_db_enc",
+        "encStore": "keys",
+        "encKeyId": 1,
+        "signalDb": "signal-storage",
+        "metaStore": "signal-meta-store",
+        "signedPreKeyStore": "signed-prekey-store",
+        "modelDb": "model-storage",
+        "contactStore": "contact"
+      },
+      "metaKeys": {
+        "staticPriv": "signal_static_privkey",
+        "staticPub": "signal_static_pubkey",
+        "advSignedIdentity": "adv_signed_identity",
+        "regId": "signal_reg_id"
+      },
+      "platform": "android"
+    }
+  }
+}

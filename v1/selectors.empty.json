@@ -1,0 +1,6 @@
+{
+  "schema": 1,
+  "revision": 1,
+  "notes": "Rollback target. Merges to exactly the bundled defaults. Copy over selectors.json and bump revision to disable every override at once.",
+  "retailers": {}
+}
