@@ -1,8 +1,8 @@
 {
   "schema": 1,
-  "revision": 2,
-  "updated": "2026-08-26",
-  "notes": "Product-page selectors for supported stores.",
+  "revision": 3,
+  "updated": "2026-09-15",
+  "notes": "Product-page selectors for supported stores. Flipkart price gained a class-independent fallback for the newer PDP template.",
   "disabled": false,
   "ttlMinutes": 60,
   "retailers": {
@@ -369,6 +369,9 @@
             },
             {
               "css": "div._30jeq3._16Jk6d"
+            },
+            {
+              "mainPrice": true
             }
           ]
         },
